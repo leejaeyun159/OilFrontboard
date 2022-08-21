@@ -1,25 +1,3 @@
-# oil-frontboard
+# 1. 개발 환경셋팅
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# OilFrontboard
+[2. 레이아웃 짜기 및 라우터](https://www.notion.so/2-2c74aa5ace374256a97ef310dda536e9)
