@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <oil-header/>
+    <router-view/>
+    <oil-footer/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import OilHeader from '@/components/OilHeader.vue' 
+import OilFooter from '@/components/OilFooter.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name:'App',
+  components:{
+    OilHeader,
+    OilFooter
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html,body{
+    margin:0;
+    background-color:var(--backBlue);
+  }
+  #app{
+    /* font-family: */
+    text-align: center;
+  }
+  #nav{
+    padding:30px;
+  }
+  #nav a{
+    color: red;
+  }
+  #nav a.router-link-exact-active{
+    color: blue;
+  }
 </style>

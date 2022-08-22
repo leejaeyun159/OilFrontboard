@@ -1,0 +1,15 @@
+<template>
+  <div class="about">
+    This ia an about page
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
