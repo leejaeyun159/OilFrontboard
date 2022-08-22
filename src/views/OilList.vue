@@ -11,8 +11,8 @@
       <li>
         <span>{{ row.idx }}</span>
         <a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a>
-        <span>{{ row.date }}</span>
-        <span>{{ row.time }}</span>
+        <span>{{ row.dat }}</span>
+        <span>{{ row.tim }}</span>
         <span>{{ row.weather }}</span>
         <span>{{ row.condition }}</span>
       </li>
@@ -33,25 +33,13 @@ export default {
   },
   methods: {
     fnGetList() {
-      this.list = [
-        {
-          idx: 1,
-          title: "몰랐던 좋은 박효신 노래를 발견했다",
-          date: "20220519",
-          time: "AM",
-          weather: "Cloudy weather",
-          condition: "Happy",
-        },
-        {
-          idx: 2,
-          title: "곧 있으면 시험이 다가온다",
-          date: "20220419",
-          time: "AM",
-          weather: "Sunny weather",
-          condition: "Angry",
-        },
-        //예시 데이터
-      ];
+      this.$axios.get(this.$serverUrl + "/board/list").then((res)=>{
+        this.list = res.data
+      }).catch((err)=>{
+        if(err.message.indexOf('Network Error')>-1){
+         alert('네트워크가 원할하지 않습니다.\n 잠시 후 다시 시도 해주세요') 
+        }
+      })
     },
   },
 };
