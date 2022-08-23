@@ -33,7 +33,10 @@ export default {
   },
   methods: {
     fnGetList() {
-      this.$axios.get(this.$serverUrl + "/board/list").then((res)=>{
+      this.$axios.get(this.$serverUrl + "/board/list",{
+        params: this.requestBody,
+        headers:{}
+      }).then((res)=>{
         this.list = res.data
       }).catch((err)=>{
         if(err.message.indexOf('Network Error')>-1){
@@ -41,6 +44,18 @@ export default {
         }
       })
     },
+    fnView(idx){
+      this.requestBody.idx  = idx
+      this.$router.push({
+        path:'./detail',
+        query:this.requestBody
+      }) //프로그래밍 방식 네비게이션
+    },
+    fnWrite(){
+      this.$router.push({
+        path:'./write'
+      })
+    }
   },
 };
 </script>
