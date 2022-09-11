@@ -7,14 +7,12 @@
     </div>
     <ul v-for="(row, idx) in list" v-bind:key="idx">
       <a @click="fnView(`${row.idx}`)">
-      <li>
-        <span>{{ row.idx }}</span> |
-        <span>{{ row.title }}</span> |
-        <span>{{ row.dat }}</span> |
-        <span>{{ row.tim }}</span> |
-        <span>{{ row.weather }}</span> |
-        <span>{{ row.condition }}</span>
-      </li>
+        <li>
+          <span>{{ row.idx }}</span> | <span>{{ row.title }}</span> |
+          <span>{{ row.dat }}</span> | <span>{{ row.tim }}</span> |
+          <span>{{ row.weather }}</span> |
+          <span>{{ row.condition }}</span>
+        </li>
       </a>
     </ul>
   </div>
@@ -25,7 +23,8 @@ export default {
   data() {
     return {
       requestBody: {}, //list page 데이터 전송
-      list: [],
+      list: {},
+      no:'',
     };
   },
   mounted() {
@@ -33,6 +32,11 @@ export default {
   },
   methods: {
     fnGetList() {
+      this.requestBody = {
+        sk: this.search_key,
+        sv: this.search_value,
+        size: this.size
+      }
       this.$axios
         .get(this.$serverUrl + "/board/list", {
           params: this.requestBody,
